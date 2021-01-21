@@ -1,0 +1,2 @@
+module SnowresortsHelper
+end

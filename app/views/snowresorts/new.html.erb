@@ -1,0 +1,67 @@
+<div class="post-contents">
+  <header class="post-header">
+    <%= link_to image_tag('logo.png' , size: '185x50'), "/" %>
+  </header>
+
+  <div class="post-main">
+    <h2 class="post-title">スキー場の情報を入力</h2>
+    <%= form_with model: @snowresort, local: true do |f| %>
+
+    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%#= render 'shared/error_messages', model: f.object %>
+  
+
+    <%#　スキー場画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        スキー場画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+    <%# /スキー場画像 %>
+    <%# スキー場名と説明 %>
+    <div class="new-snowresorts">
+      <div class="weight-bold-text">
+        スキー場名(正式名称で記入)
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :resort_name, class:"snowresorts-text", id:"resort-name", placeholder:"スキー場名（必須 正式名称でお願いします)", maxlength:"40" %>
+      <div class="snowresort-explain">
+        <div class="weight-bold-text">
+          スキー場の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :introduction, class:"snowresorts-text", id:"resort-info", placeholder:"スノーリゾートの特徴（必須 1,000文字まで）（パークが充実、地形豊富、初心者向けなど）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /スキー場名と説明  %>
+    <div class="snowresort-details">
+      <div class="weight-bold-text">
+        スキー場のコンディション
+        <span class="indispensable">必須</span>
+      </div>
+        <%= f.text_area :details, class:"snowresorts-text", id:"resort-info", placeholder:"雪質、天候、混雑状況、リフト状況、積雪量など（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+    </div>
+
+   
+    <%# 下部ボタン %>
+    <div class="post-btn-contents">
+      <%= f.submit "投稿する" ,class:"post-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="post-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">スノリゾルック利用規約</a></li>
+    </ul>
+  </footer>
+</div>
