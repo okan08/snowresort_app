@@ -37,5 +37,30 @@
     <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
     <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
   </div>
-
 </div>
+
+  <%# 投稿一覧 %>
+  <div class='snowresort-contents'>
+    <h2 class='title'>ゲレンデ一覧</h2>
+    <ul class='snowresort-lists'>
+      <% @snowresorts.each do |snowresort|%>
+        <li class='list'>
+          <%= link_to snowresort_path(snowresort.id), method: :get do %>  
+          <div class='resort-img-content'>
+            <%= image_tag snowresort.image, class: "resort-img" %>
+          </div>
+          <div class='snowresort-info'>
+            <h3 class='snowresort-name'>
+              <%= snowresort.resort_name %>
+            </h3>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+          <% end %>  
+        </li>
+      <% end %> 
+    </ul>
+  </div>
+  <%# 投稿一覧 %>
