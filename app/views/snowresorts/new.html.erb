@@ -1,8 +1,6 @@
-<div class="post-contents">
-  <header class="post-header">
-    <%= link_to image_tag('logo.png' , size: '185x50'), "/" %>
-  </header>
+<%= render "shared/header"%>
 
+<div class="post-contents">
   <div class="post-main">
     <h2 class="post-title">スキー場の情報を入力</h2>
     <%= form_with model: @snowresort, local: true do |f| %>
@@ -57,11 +55,6 @@
     <%# /下部ボタン %>
   </div>
   <% end %>
-
-  <footer class="post-footer">
-    <ul class="menu">
-      <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">スノリゾルック利用規約</a></li>
-    </ul>
-  </footer>
 </div>
+
+<%= render "shared/footer"%>
