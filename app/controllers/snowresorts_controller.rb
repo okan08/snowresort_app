@@ -24,6 +24,16 @@ class SnowresortsController < ApplicationController
     @comments = @snowresort.comments.includes(:user)
   end
 
+  def edit
+  end
+
+  def update
+    if @snowresort.update(snowresort_params)
+      redirect_to snowresort_path
+    else
+      render :edit
+    end
+  end
 
   def snowresort_find
     @snowresort = Snowresort.find(params[:id])

@@ -32,16 +32,16 @@
       <%= f.text_area :resort_name, class:"snowresorts-text", id:"resort-name", placeholder:"スキー場名（必須 正式名称でお願いします)", maxlength:"40" %>
       <div class="snowresort-explain">
         <div class="weight-bold-text">
-          スキー場の説明
+          ゲレンデの説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :introduction, class:"snowresorts-text", id:"resort-info", placeholder:"スノーリゾートの特徴（必須 1,000文字まで）（パークが充実、地形豊富、初心者向けなど）" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :introduction, class:"snowresorts-text", id:"resort-info", placeholder:"ゲレンデの特徴（必須 1,000文字まで）（パークが充実、地形豊富、初心者向けなど）" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /スキー場名と説明  %>
     <div class="snowresort-details">
       <div class="weight-bold-text">
-        スキー場のコンディション
+        ゲレンデのコンディション
         <span class="indispensable">必須</span>
       </div>
         <%= f.text_area :details, class:"snowresorts-text", id:"resort-info", placeholder:"雪質、天候、混雑状況、リフト状況、積雪量など（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
