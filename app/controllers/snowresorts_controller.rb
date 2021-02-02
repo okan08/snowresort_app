@@ -35,6 +35,16 @@ class SnowresortsController < ApplicationController
     end
   end
 
+  def destroy
+    if current_user.id == @snowresort.user_id
+      @snowresort.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
+
   def snowresort_find
     @snowresort = Snowresort.find(params[:id])
   end
