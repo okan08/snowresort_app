@@ -43,11 +43,15 @@
   <div class='snowresort-contents'>
     <h2 class='title'>ゲレンデ一覧</h2>
     <ul class='snowresort-lists'>
-      <% @snowresorts.each do |snowresort|%>
+      <% @snowresorts.reverse.each do |snowresort|%>
         <li class='list'>
           <%= link_to snowresort_path(snowresort.id), method: :get do %>  
           <div class='resort-img-content'>
             <%= image_tag snowresort.image, class: "resort-img" %>
+          </div>
+        　<div class="message-date">
+          <!-- 投稿した時刻を出力する -->
+            <%= l snowresort.created_at, format: :short %>
           </div>
           <div class='snowresort-info'>
             <h3 class='snowresort-name'>
@@ -64,3 +68,5 @@
     </ul>
   </div>
   <%# 投稿一覧 %>
+
+  <%= render "shared/footer"%>
