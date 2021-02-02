@@ -1,4 +1,6 @@
 class SnowresortsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit]
+  before_action :snowresort_find, only: [:show, :edit, :update, :destroy]
 
   def index
     @snowresorts = Snowresort.all
@@ -15,6 +17,16 @@ class SnowresortsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @comment = Comment.new
+    @comments = @snowresort.comments.includes(:user)
+  end
+
+
+  def snowresort_find
+    @snowresort = Snowresort.find(params[:id])
   end
 
   private
