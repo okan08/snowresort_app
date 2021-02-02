@@ -25,6 +25,7 @@ class SnowresortsController < ApplicationController
   end
 
   def edit
+    redirect_to root_path if current_user.id != @snowresort.user_id
   end
 
   def update
