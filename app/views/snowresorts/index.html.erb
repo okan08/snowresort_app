@@ -49,11 +49,15 @@
           <div class='resort-img-content'>
             <%= image_tag snowresort.image, class: "resort-img" %>
           </div>
-        　<div class="message-date">
-          <!-- 投稿した時刻を出力する -->
-            <%= l snowresort.created_at, format: :short %>
-          </div>
+
           <div class='snowresort-info'>
+            <div class="post-date">
+              <!-- 投稿した時刻を出力する -->
+              <%= l snowresort.created_at, format: :short %>
+            </div>
+            <h3 class='snowresort-name'>
+              <%= snowresort.user.nickname%>
+            </h3>
             <h3 class='snowresort-name'>
               <%= snowresort.resort_name %>
             </h3>
