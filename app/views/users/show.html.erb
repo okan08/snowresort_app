@@ -1,0 +1,11 @@
+<%= render "shared/header"%>
+
+<div class="snowresort-contens">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @snowresorts.reverse.each do |snowresort| %>
+    <%= image_tag snowresort.image, class: "resort-img" %>
+    <%= l snowresort.created_at, format: :short %>
+      <p><%= snowresort.resort_name %></p>
+    </div>
+  <% end %>
+</div>

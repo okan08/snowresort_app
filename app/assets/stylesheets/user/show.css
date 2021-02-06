@@ -1,0 +1,19 @@
+.snowresort-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+
+.resort-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.snowresort-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
