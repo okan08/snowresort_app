@@ -1,5 +1,8 @@
 <%= render "shared/header"%>
 
+<div class="profile">
+  <%= link_to "プロフィールの変更", edit_user_path(current_user) %>
+</div>
 <div class="snowresort-contens">
   <p><%= @nickname %>さんの投稿一覧</p>
   <% @snowresorts.reverse.each do |snowresort| %>
@@ -9,3 +12,5 @@
     </div>
   <% end %>
 </div>
+
+ 

@@ -10,9 +10,9 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
-  with_options confirmation: true, format: { with: /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]{6,}\z/, message: 'must be both letters and numbers' } do # 半角英数字含む６文字以上
-    validates :password
-  end
+  #with_options confirmation: true, format: { with: /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]{6,}\z/, message: 'must be both letters and numbers' } do # 半角英数字含む６文字以上
+   # validates :password
+  #end
 
   with_options presence: true do
     validates :nickname

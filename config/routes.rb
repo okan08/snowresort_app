@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :snowresorts do
     resources :comments
   end
-  resources :users, only: :show
+  resources :users, only: [:show, :edit, :update]
 end
