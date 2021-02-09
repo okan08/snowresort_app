@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "snowresorts#index"
   resources :snowresorts do
     resources :comments
+    collection do
+      get 'search'
+    end
   end
   resources :users, only: [:show, :edit, :update]
 end

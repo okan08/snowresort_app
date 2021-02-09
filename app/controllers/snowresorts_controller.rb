@@ -45,9 +45,12 @@ class SnowresortsController < ApplicationController
     end
   end
 
-
   def snowresort_find
     @snowresort = Snowresort.find(params[:id])
+  end
+
+  def search
+    @snowresorts = Snowresort.search(params[:keyword])
   end
 
   private

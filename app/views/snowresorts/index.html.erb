@@ -12,7 +12,6 @@
     誰でも口コミ、検索ができます。
   </p>
   <ul class='lists-right'
-    <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
     <% if user_signed_in? %>       
         <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>       
@@ -20,15 +19,14 @@
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
     <% end %>
-    <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
   </ul>
   <div class='search-bar-contents'>
-    <form class="search-form" action="#">
-      <input class='input-box' placeholder='キーワードからスキー場を検索'>
+    <%= form_with(url: search_snowresorts_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "キーワードからスキー場を検索", class: "input-box" %>
       <button class="search-button">
-        <%= image_tag "search.png", class:"search-icon" %>
+        <%= image_tag "search.png", class: "search-icon" %>
       </button>
-    </form>
+    <% end %>
   </div>
   
   <%= link_to '投稿する', new_snowresort_path, class: 'post' %>

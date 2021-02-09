@@ -9,4 +9,13 @@ class Snowresort < ApplicationRecord
     validates :image
     validates :details
   end
+
+  def self.search(search)
+    if search != ""
+      Snowresort.where('resort_name LIKE(?)', "%#{search}%")
+    else
+      Snowresort.all
+    end
+  end
+
 end
