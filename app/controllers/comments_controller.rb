@@ -8,5 +8,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:comment).merge(user_id: current_user.id, snowresort_id: params[:snowresort_id])
   end
-
 end
