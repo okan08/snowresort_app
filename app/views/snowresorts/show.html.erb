@@ -1,39 +1,33 @@
 <%= render "shared/header"%>
 
 <%# 投稿の概要 %>
-<div class="item-show">
-  <div class="item-box">
+<div class="resort-show">
     <h2 class="name">
       <%= @snowresort.resort_name %>
     </h2>
-    <div class='item-img-content'>
-      <%= image_tag @snowresort.image, class:"item-box-img" %>
+  <div class="resort-box">
+
+    <div class='resort-img-content'>
+      <%= image_tag @snowresort.image, class:"resort-box-img" %>
     </div>
 
-  <% if user_signed_in? %>
-    <% if current_user.id == @snowresort.user_id %>
-      <%= link_to '投稿の編集', edit_snowresort_path(@snowresort.id), method: :get, class: "item-red-btn" %>
-      <%= link_to '削除', snowresort_path(@snowresort.id), method: :delete, class:'item-destroy' %>
-    <% end %>
-  <% end %>
- 
-    <div class="message-date">
-      <!-- 投稿した時刻を出力する -->
-      <%= l @snowresort.created_at, format: :short %>
-    </div>
-
-    <div class="item-explain-box">
-      <span><%= @snowresort.introduction %></span>
-    </div>
     <table class="detail-table">
       <tbody>
+        <tr>
+          <th class="detail-item">ゲレンデ紹介</th>
+          <td class="detail-value"><%= @snowresort.introduction %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">コンディション</th>
+          <td class="detail-value"><%= @snowresort.details %></td>
+        </tr>
         <tr>
           <th class="detail-item">投稿者</th>
           <td class="detail-value"><%= @snowresort.user.nickname %></td>
         </tr>
         <tr>
-          <th class="detail-item">ゲレンデのコンディション</th>
-          <td class="detail-value"><%= @snowresort.details %></td>
+          <th class="detail-item">投稿時間</th>
+          <td class="detail-value"><%= l @snowresort.created_at, format: :short %></td>
         </tr>
       </tbody>
     </table>
@@ -44,41 +38,44 @@
       </div>
     </div>
   </div>
+  <div class="henshuu">
+    <% if user_signed_in?%>
+      <% if current_user.id == @snowresort.user_id %>
+        <%= link_to '投稿の編集', edit_snowresort_path(@snowresort.id), method: :get, class: "resort-blue-btn" %>
+        <%= link_to '削除', snowresort_path(@snowresort.id), method: :delete, class:'resort-destroy' %>
+      <% end %>
+    <% end %>
+  </div>  
+
   <%# /投稿の概要 %>
 
+  <%# コメント欄 %>
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
-  </div>
-
-
-  <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@snowresort, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
+        <%= form.text_area :comment, placeholder: "コメントする", class: "comment-text"%>
+        <button type="submit" class="comment-btn">
+          <span>コメントする<span>
+        </button>
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
   </div>
+
   <div class="comments">
     <h4>＜コメント一覧＞</h4>
-    <% @comments.each do |comment| %>
-      <p>
+    <% @comments.reverse.each do |comment| %>
+      <div class="post-comment">
         <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
         <%= comment.comment %>
-      </p>
+        <div class="comment-date">
+          <%= l comment.created_at, format: :short %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
+<%# /コメント欄 %>
 
 <%= render "shared/footer" %>   
