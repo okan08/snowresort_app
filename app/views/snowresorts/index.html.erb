@@ -20,6 +20,7 @@
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
     <% end %>
   </ul>
+  <%= button_to '投稿する', new_snowresort_path, method: :get, class: 'post' %>
   <div class='search-bar-contents'>
     <%= form_with(url: search_snowresorts_path, local: true, method: :get, class: "search-form") do |form| %>
       <%= form.text_field :keyword, placeholder: "キーワードからスキー場を検索", class: "input-box" %>
@@ -29,8 +30,6 @@
     <% end %>
   </div>
   
-  <%= link_to '投稿する', new_snowresort_path, class: 'post' %>
-
   <div class='store-btn'>
     <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
     <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>

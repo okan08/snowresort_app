@@ -15,12 +15,9 @@ a {
   height: 100vh;
   background-image: image-url('main.png');
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: flex-start;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
@@ -47,7 +44,6 @@ a {
   display: flex;
   margin-top: 10vh;
   padding-right: 60vw;
-
 }
 
 .apple-btn {
@@ -59,17 +55,11 @@ a {
   height: 9vh;
 }
 
-.search-bar-contents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .search-form {
-  margin-top: 10vh;
+  margin-top: 5vh;
   margin-right: 100px;
   display: flex;
-  //margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .search-form>.input-box {
@@ -80,9 +70,7 @@ a {
 .search-button {
   width: 5vh;
   border: 0;
-  cursor: pointer;
   background-color: blue;
-  padding: 8px;
 }
 
 .search-icon {
@@ -92,25 +80,19 @@ a {
 .lists-right {
   font-size: 20px;
   display: flex;
-  list-style: none;
-  align-items: flex-end;
-  margin: 10vh 100px 0 0;
+  margin: 10vh 100px 20px 0;
 }
 
 .user-nickname {
-  text-decoration: none;
   margin-right: 3vw;
   color: #333333;
-  font-weight: bold;
 }
 
 .logout {
-  text-decoration: none;
   color: #333333;
 }
 
 .login {
-  text-decoration: none;
   line-height: 32px;
   margin-right: 3vw;
   color: #333333;
@@ -121,29 +103,22 @@ a {
   color: #333333;
 }
 
+.post{
+  background-color: lightblue;
+  margin: 20px 100px 0 0;
+  padding: 10px 20px;
+  text-align: center;
+  color: black;
+  width: 100px;
+}
 
 /* 投稿一覧 */
-
-.snowresort-contents {
-  background-color: #FFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10vh 0;
-}
 
 .snowresort-contents>.title {
   font-size: 5vh;
   line-height: 1.4;
   font-weight: bold;
-}
-
-.item-contents>.subtitle {
-  font-size: 3vh;
-  margin: 1vh 0;
-  text-decoration: none;
-  color: #3ccace;
-  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .snowresort-lists {
@@ -158,7 +133,6 @@ a {
   padding: 1vw;
   background-color: #FFF;
 }
-
 
 .resort-img-content {
   position: relative;
