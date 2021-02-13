@@ -1,10 +1,40 @@
-<%= form_with(url: search_snowresorts_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
+  <%= render "shared/header"%>
+  
+  <div class='search-bar-contents'>
+    <%= form_with(url: search_snowresorts_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "キーワードからスキー場を検索", class: "input-box" %>
+      <button class="search-button">
+        <%= image_tag "search.png", class: "search-icon" %>
+      </button>
+    <% end %>
+  </div>
 <div class="contents row">
-  <% @snowresorts.each do |snowresort| %>
-    <%= snowresort.resort_name %>
-    <%#= render partial: "snowresort", locals: { snowresort: snowresort } %>
-  <% end %>
+  <ul class='snowresort-lists'>
+    <% @snowresorts.reverse.each do |snowresort|%>
+      <li class='list'>
+        <%= link_to snowresort_path(snowresort.id), method: :get do %>  
+          <div class='resort-img-content'>
+            <%= image_tag snowresort.image, class: "resort-img" %>
+          </div>
+
+          <div class='snowresort-info'>
+            <div class="post-date">
+              <!-- 投稿した時刻を出力する -->
+              <%= l snowresort.created_at, format: :short %>
+            </div>
+            <h3 class='snowresort-name'>
+              <%= snowresort.user.nickname%>
+            </h3>
+            <h3 class='snowresort-name'>
+              <%= snowresort.resort_name %>
+            </h3>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        <% end %>  
+      </li>
+    <% end %> 
+  </ul>
 </div>
