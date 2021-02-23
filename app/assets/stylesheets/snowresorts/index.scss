@@ -114,6 +114,14 @@ a {
 
 /* 投稿一覧 */
 
+.snowresort-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
 .snowresort-contents>.title {
   font-size: 5vh;
   line-height: 1.4;

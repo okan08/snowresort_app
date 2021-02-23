@@ -3,8 +3,9 @@
 <div class="profile">
   <%= link_to "プロフィールの変更", edit_user_path(current_user) %>
 </div>
-<div class="snowresort-contens">
-  <p><%= @nickname %>さんの投稿一覧</p>
+<p class='title2'><%= @nickname %>さんの投稿一覧</p>
+<div class="snowresort-contents">
+  
   <% @snowresorts.reverse.each do |snowresort| %>
     <%= image_tag snowresort.image, class: "resort-img" %>
     <%= l snowresort.created_at, format: :short %>
@@ -12,5 +13,3 @@
     </div>
   <% end %>
 </div>
-
- 
